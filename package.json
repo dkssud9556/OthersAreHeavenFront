@@ -1,0 +1,41 @@
+{
+  "name": "OthersAreHeavenFront",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --mode development --open --hot --port 3001 --optimize-minimize"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dkssud9556/OthersAreHeavenFront.git"
+  },
+  "keywords": [
+    "react",
+    "webpack"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dkssud9556/OthersAreHeavenFront/issues"
+  },
+  "homepage": "https://github.com/dkssud9556/OthersAreHeavenFront#readme",
+  "dependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.14",
+    "@babel/preset-env": "^7.13.12",
+    "@babel/preset-react": "^7.13.13",
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^3.0.0",
+    "html-webpack-plugin": "^4.5.0",
+    "react-hot-loader": "^4.13.0",
+    "webpack": "^5.11.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.1"
+  }
+}
