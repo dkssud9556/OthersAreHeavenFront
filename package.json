@@ -22,7 +22,8 @@
   "homepage": "https://github.com/dkssud9556/OthersAreHeavenFront#readme",
   "dependencies": {
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "styled-components": "^5.2.2"
   },
   "devDependencies": {
     "@babel/core": "^7.13.14",
@@ -32,6 +33,7 @@
     "babel-cli": "^6.26.0",
     "babel-loader": "^8.2.2",
     "clean-webpack-plugin": "^3.0.0",
+    "file-loader": "^6.2.0",
     "html-webpack-plugin": "^4.5.0",
     "prettier": "^2.2.1",
     "react-hot-loader": "^4.13.0",
