@@ -1,15 +1,15 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
-  mode: 'none',
+  mode: "none",
   entry: {
-    app: path.join(__dirname, 'src', 'index.jsx')
+    app: path.join(__dirname, "src", "index.jsx"),
   },
-  target: 'web',
+  target: "web",
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: [".js", ".jsx"],
   },
   module: {
     rules: [
@@ -17,32 +17,36 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: "babel-loader",
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react']
-          }
-        }
-      }
-    ]
+            presets: ["@babel/preset-env", "@babel/preset-react"],
+          },
+        },
+      },
+      {
+        test: /\.(png|jpg)$/,
+        use: "file-loader",
+      },
+    ],
   },
   output: {
     filename: "[name].js",
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, "dist"),
   },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: "Webpack App",
-      inject: 'body',
-      template: path.resolve(__dirname, 'index.html')
-    })
+      inject: "body",
+      template: path.resolve(__dirname, "index.html"),
+    }),
   ],
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
+    contentBase: path.join(__dirname, "dist"),
     inline: true,
     hot: true,
-    host: 'localhost',
+    host: "localhost",
     port: 3000,
-    open: 'whale'
-  }
-}
+    open: "whale",
+  },
+};
