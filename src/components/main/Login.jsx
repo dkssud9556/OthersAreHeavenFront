@@ -27,6 +27,8 @@ const Login = ({ changeSignUp }) => {
       .then((loginResult) => {
         alert("로그인 성공");
         localStorage.setItem("accessToken", loginResult.data.accessToken);
+        axios.defaults.headers.common["Authorization"] =
+          loginResult.data.accessToken;
       })
       .catch((err) => {
         console.log(err);
