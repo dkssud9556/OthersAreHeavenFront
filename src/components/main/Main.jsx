@@ -1,33 +1,46 @@
 import React, { useState } from "react";
 import * as S from "./style";
 import Background from "../../assets/img/main-background.jpg";
-import Login from "./Login";
-import SignUp from "./SignUp";
+import Login from "./login";
+import SignUp from "./signup";
 
-const Main = () => {
-  const [isLogin, setLogin] = useState(true);
-
-  const changeSignUp = () => {
-    setLogin(false);
-  };
-
-  const changeLogin = () => {
-    setLogin(true);
-  };
-
+const Main = ({
+  isLoginMode,
+  setLoginMode,
+  signupEmail,
+  signupPassword,
+  setSignupEmail,
+  setSignupPassword,
+  loginEmail,
+  loginPassword,
+  setLoginEmail,
+  setLoginPassword,
+}) => {
   return (
-    <S.Container url={Background}>
-      <S.TitleContainer>
+    <S.MainPage url={Background}>
+      <S.TitleWrapper>
         <S.Title>타인은</S.Title>
         <S.Title>천국이다</S.Title>
         <S.Description>새로운 인연을 만들어보세요!</S.Description>
-      </S.TitleContainer>
-      {isLogin ? (
-        <Login changeSignUp={changeSignUp} />
+      </S.TitleWrapper>
+      {isLoginMode ? (
+        <Login
+          setLoginMode={setLoginMode(false)}
+          email={loginEmail}
+          password={loginPassword}
+          setEmail={setLoginEmail}
+          setPassword={setLoginPassword}
+        />
       ) : (
-        <SignUp changeLogin={changeLogin} />
+        <SignUp
+          setLoginMode={setLoginMode(true)}
+          email={signupEmail}
+          password={signupPassword}
+          setEmail={setSignupEmail}
+          setPassword={setSignupPassword}
+        />
       )}
-    </S.Container>
+    </S.MainPage>
   );
 };
 
