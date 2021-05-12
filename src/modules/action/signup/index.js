@@ -1,13 +1,13 @@
-import { PASSWORD, EMAIL } from "./interface";
+import { SIGNUP_EMAIL, SIGNUP_PASSWORD } from "./interface";
 
-export const setEmail = (payload) => ({
-  type: EMAIL,
+export const setSignupEmail = (payload) => ({
+  type: SIGNUP_EMAIL,
   payload,
 });
 
-export const setPassword = (payload) => ({
-  type: PASSWORD,
+export const setSignupPassword = (payload) => ({
+  type: SIGNUP_PASSWORD,
   payload,
 });
 
-export { EMAIL, PASSWORD };
+export { SIGNUP_EMAIL, SIGNUP_PASSWORD };
