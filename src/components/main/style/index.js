@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const MainPage = styled.div`
   width: 100%;
   height: 100vh;
   background-image: url(${(props) => props.url});
@@ -9,7 +9,7 @@ export const Container = styled.div`
   font-family: "NanumSquare", sans-serif;
 `;
 
-export const TitleContainer = styled.div`
+export const TitleWrapper = styled.div`
   padding-top: 50px;
   padding-left: 50px;
   width: 600px;
@@ -27,7 +27,7 @@ export const Description = styled.div`
   padding-top: 20px;
 `;
 
-export const AccountContainer = styled.div`
+export const AccountWrapper = styled.div`
   width: 600px;
   height: 80vh;
   background: rgba(255, 255, 255, 0.8);
@@ -44,48 +44,16 @@ export const AccountTitle = styled.h1`
   font-weight: bold;
 `;
 
-export const AccountTitleContainer = styled.div`
+export const AccountTitleWrapper = styled.div`
   margin-top: 55px;
 `;
 
-export const AccountInputContainer = styled.div`
+export const AccountInputWrapper = styled.div`
   margin-top: 30px;
   width: 80%;
 `;
 
-export const AccountInput = styled.input`
-  font-size: 25px;
-  margin-top: 40px;
-  border-radius: 32px;
-  padding: 10px;
-  width: 100%;
-  height: 65px;
-  box-sizing: border-box;
-  outline: none;
-  background: white;
-  border: 1px solid #707070;
-`;
-
-export const AccountButtonContainer = styled.div`
-  margin-top: 50px;
-  width: 80%;
-`;
-
-export const AccountButton = styled.button`
-  border-radius: 32px;
-  height: 60px;
-  box-sizing: border-box;
-  width: 100%;
-  font-size: 30px;
-  outline: none;
-  background: white;
-  border: 1px solid #707070;
-  &:hover {
-    cursor: pointer;
-  }
-`;
-
-export const AccountModeChangeButton = styled.div`
+export const AccountModeChangeAnchor = styled.a`
   margin-top: 10px;
   font-size: 20px;
   &:hover {
@@ -107,7 +75,7 @@ export const EmailSendButton = styled.button`
   }
 `;
 
-export const EmailVerificationContainer = styled.div`
+export const EmailVerificationWrapper = styled.div`
   width: 100%;
   display: flex;
 `;
