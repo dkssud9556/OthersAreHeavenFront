@@ -1,14 +1,11 @@
 import React, { useState } from "react";
-import * as S from "../main/style";
+import * as S from "../style";
 import axios from "axios";
-import config from "../../config";
-import Button from "../default/button/Button";
-import Input from "../default/input/Input";
+import config from "../../../config";
+import Button from "../../default/button/Button";
+import Input from "../../default/input/Input";
 
-const Login = ({ setLoginMode }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
+const Login = ({ setLoginMode, email, password, setEmail, setPassword }) => {
   const onChangeEmail = (e) => {
     setEmail(e.target.value);
   };
@@ -33,12 +30,12 @@ const Login = ({ setLoginMode }) => {
   };
 
   return (
-    <S.AccountContainer>
-      <S.AccountTitleContainer>
+    <S.AccountWrapper>
+      <S.AccountTitleWrapper>
         <S.AccountTitle>로그인</S.AccountTitle>
-      </S.AccountTitleContainer>
+      </S.AccountTitleWrapper>
       <S.SubmitForm onSubmit={onSubmitLogin}>
-        <S.AccountInputContainer>
+        <S.AccountInputWrapper>
           <Input placeholder="이메일" value={email} onChange={onChangeEmail} />
           <Input
             placeholder="비밀번호"
@@ -46,13 +43,13 @@ const Login = ({ setLoginMode }) => {
             onChange={onChangePassword}
             type="password"
           />
-        </S.AccountInputContainer>
+        </S.AccountInputWrapper>
         <Button value="로그인" />
       </S.SubmitForm>
-      <S.AccountModeChangeButton onClick={setLoginMode}>
+      <S.AccountModeChangeAnchor onClick={setLoginMode}>
         회원 가입 하시겠습니까?
-      </S.AccountModeChangeButton>
-    </S.AccountContainer>
+      </S.AccountModeChangeAnchor>
+    </S.AccountWrapper>
   );
 };
 
