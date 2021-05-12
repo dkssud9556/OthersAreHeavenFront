@@ -1,23 +1,26 @@
-import { EMAIL, PASSWORD } from "../../action/signup";
+import { SIGNUP_EMAIL, SIGNUP_PASSWORD } from "../../action/signup";
 
 const initState = {
-  email: "",
-  password: "",
+  signupEmail: "",
+  signupPassword: "",
 };
 
 const SignUpReducer = (state = initState, action) => {
   switch (action.type) {
-    case EMAIL: {
+    case SIGNUP_EMAIL: {
       return {
         ...state,
-        name: action.payload,
+        signupEmail: action.payload,
       };
     }
-    case PASSWORD: {
+    case SIGNUP_PASSWORD: {
       return {
         ...state,
-        password: action.payload,
+        signupPassword: action.payload,
       };
+    }
+    default: {
+      return state;
     }
   }
 };
