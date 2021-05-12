@@ -1,14 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
-import * as S from "../main/style";
-import config from "../../config";
-import Button from "../default/button/Button";
-import Input from "../default/input/Input";
+import * as S from "../style";
+import config from "../../../config";
+import Button from "../../default/button/Button";
+import Input from "../../default/input/Input";
 
-const SignUp = ({ setLoginMode }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
+const SignUp = ({ setLoginMode, email, password, setEmail, setPassword }) => {
   const onSubmitSignUp = (e) => {
     e.preventDefault();
     axios
@@ -40,30 +37,35 @@ const SignUp = ({ setLoginMode }) => {
   };
 
   return (
-    <S.AccountContainer>
-      <S.AccountTitleContainer>
+    <S.AccountWrapper>
+      <S.AccountTitleWrapper>
         <S.AccountTitle>회원가입</S.AccountTitle>
-      </S.AccountTitleContainer>
+      </S.AccountTitleWrapper>
       <S.SubmitForm onSubmit={onSubmitSignUp}>
-        <S.AccountInputContainer>
-          <S.EmailVerificationContainer>
-            <Input placeholder={"이메일"} onChange={onChangeEmail} />
+        <S.AccountInputWrapper>
+          <S.EmailVerificationWrapper>
+            <Input
+              value={email}
+              placeholder={"이메일"}
+              onChange={onChangeEmail}
+            />
             <S.EmptySpaceBetweenInputAndButton />
             <S.EmailSendButton>전송</S.EmailSendButton>
-          </S.EmailVerificationContainer>
+          </S.EmailVerificationWrapper>
           <Input
+            value={password}
             placeholder={"비밀번호"}
             onChange={onChangePassword}
             type={"password"}
           />
           <Input placeholder={"인증번호"} />
-        </S.AccountInputContainer>
+        </S.AccountInputWrapper>
         <Button value="회원가입" />
       </S.SubmitForm>
-      <S.AccountModeChangeButton onClick={setLoginMode}>
+      <S.AccountModeChangeAnchor onClick={setLoginMode}>
         이미 계정이 있으신가요?
-      </S.AccountModeChangeButton>
-    </S.AccountContainer>
+      </S.AccountModeChangeAnchor>
+    </S.AccountWrapper>
   );
 };
 
