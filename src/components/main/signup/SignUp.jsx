@@ -1,16 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
-import * as S from "./style";
+import * as S from "../main/style";
 import config from "../../config";
+import Button from "../default/button/Button";
+import Input from "../default/input/Input";
 
-const SignUp = ({ changeLogin }) => {
+const SignUp = ({ setLoginMode }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  const onClickModeChangeButton = (e) => {
-    e.preventDefault();
-    changeLogin();
-  };
 
   const onSubmitSignUp = (e) => {
     e.preventDefault();
@@ -18,7 +15,6 @@ const SignUp = ({ changeLogin }) => {
       .post(`${config.SERVER_URL}/auth/sign-up`, { email, password })
       .then((signUpResult) => {
         alert("회원가입 성공");
-        changeLogin();
       })
       .catch((err) => {
         switch (err.response.status) {
@@ -51,22 +47,20 @@ const SignUp = ({ changeLogin }) => {
       <S.SubmitForm onSubmit={onSubmitSignUp}>
         <S.AccountInputContainer>
           <S.EmailVerificationContainer>
-            <S.AccountInput placeholder={"이메일"} onChange={onChangeEmail} />
+            <Input placeholder={"이메일"} onChange={onChangeEmail} />
             <S.EmptySpaceBetweenInputAndButton />
             <S.EmailSendButton>전송</S.EmailSendButton>
           </S.EmailVerificationContainer>
-          <S.AccountInput
+          <Input
             placeholder={"비밀번호"}
             onChange={onChangePassword}
             type={"password"}
           />
-          <S.AccountInput placeholder={"인증번호"} />
+          <Input placeholder={"인증번호"} />
         </S.AccountInputContainer>
-        <S.AccountButtonContainer>
-          <S.AccountButton>회원가입</S.AccountButton>
-        </S.AccountButtonContainer>
+        <Button value="회원가입" />
       </S.SubmitForm>
-      <S.AccountModeChangeButton onClick={onClickModeChangeButton}>
+      <S.AccountModeChangeButton onClick={setLoginMode}>
         이미 계정이 있으신가요?
       </S.AccountModeChangeButton>
     </S.AccountContainer>
