@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "./header/Header";
+import Header from "./header";
 import * as S from "./style";
 
 const Matching = () => {
