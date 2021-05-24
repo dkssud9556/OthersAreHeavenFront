@@ -1,4 +1,10 @@
-import { LOGIN_EMAIL, LOGIN_PASSWORD } from "./interface";
+import {
+  LOGIN_EMAIL,
+  LOGIN_FAIL,
+  LOGIN_PASSWORD,
+  LOGIN_SUCCESS,
+  LOGIN,
+} from "./interface";
 
 export const setLoginEmail = (payload) => ({
   type: LOGIN_EMAIL,
@@ -10,4 +16,19 @@ export const setLoginPassword = (payload) => ({
   payload,
 });
 
-export { LOGIN_EMAIL, LOGIN_PASSWORD };
+export const login = (payload) => ({
+  type: LOGIN,
+  payload,
+});
+
+export const loginSuccess = (payload) => ({
+  type: LOGIN_SUCCESS,
+  payload,
+});
+
+export const loginFail = (payload) => ({
+  type: LOGIN_FAIL,
+  payload,
+});
+
+export { LOGIN_EMAIL, LOGIN_PASSWORD, LOGIN, LOGIN_SUCCESS, LOGIN_FAIL };
