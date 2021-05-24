@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import * as S from "./style";
 import Background from "../../assets/img/main-background.jpg";
 import Login from "./login";
@@ -6,15 +6,17 @@ import SignUp from "./signup";
 
 const Main = ({
   isLoginMode,
-  setLoginMode,
   signupEmail,
   signupPassword,
-  setSignupEmail,
-  setSignupPassword,
   loginEmail,
   loginPassword,
-  setLoginEmail,
-  setLoginPassword,
+  onSignup,
+  onClickLoginModeAnchor,
+  onChangeLoginEmail,
+  onChangeLoginPassword,
+  onChangeSignupEmail,
+  onChangeSignupPassword,
+  onLogin,
 }) => {
   return (
     <S.MainPage url={Background}>
@@ -25,19 +27,21 @@ const Main = ({
       </S.TitleWrapper>
       {isLoginMode ? (
         <Login
-          setLoginMode={setLoginMode(false)}
           email={loginEmail}
           password={loginPassword}
-          setEmail={setLoginEmail}
-          setPassword={setLoginPassword}
+          onChangeEmail={onChangeLoginEmail}
+          onChangePassword={onChangeLoginPassword}
+          onClickLoginModeAnchor={onClickLoginModeAnchor(false)}
+          onLogin={onLogin}
         />
       ) : (
         <SignUp
-          setLoginMode={setLoginMode(true)}
           email={signupEmail}
           password={signupPassword}
-          setEmail={setSignupEmail}
-          setPassword={setSignupPassword}
+          onChangeEmail={onChangeSignupEmail}
+          onChangePassword={onChangeSignupPassword}
+          onSignup={onSignup}
+          onClickLoginModeAnchor={onClickLoginModeAnchor(true)}
         />
       )}
     </S.MainPage>
