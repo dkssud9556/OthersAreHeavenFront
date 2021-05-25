@@ -1,14 +1,17 @@
 import React from "react";
 import { Provider } from "react-redux";
-import GlobalStyle from "./globalStyle";
 import store from "./modules/store";
+import GlobalStyle from "./globalStyle";
 import RootRouter from "./route";
+import { useRouteMatch } from "react-router-dom";
 
-export default function App() {
+const App = () => {
   return (
     <Provider store={store}>
       <GlobalStyle />
       <RootRouter />
     </Provider>
   );
-}
+};
+
+export default App;
