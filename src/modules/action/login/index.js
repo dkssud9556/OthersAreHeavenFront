@@ -1,9 +1,9 @@
 import {
+  LOGIN,
   LOGIN_EMAIL,
   LOGIN_FAIL,
   LOGIN_PASSWORD,
   LOGIN_SUCCESS,
-  LOGIN,
 } from "./interface";
 
 export const setLoginEmail = (payload) => ({

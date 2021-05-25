@@ -1,7 +1,5 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React from "react";
 import * as S from "../style";
-import config from "../../../config";
 import Button from "../../default/button/Button";
 import Input from "../../default/input/Input";
 

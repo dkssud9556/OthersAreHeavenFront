@@ -1,4 +1,3 @@
-import { composeWithDevTools } from "redux-devtools-extension";
 import createSagaMiddleware from "redux-saga";
 import { configureStore } from "@reduxjs/toolkit";
 import { createBrowserHistory } from "history";

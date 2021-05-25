@@ -1,7 +1,5 @@
 import React from "react";
 import * as S from "../style";
-import axios from "axios";
-import config from "../../../config";
 import Button from "../../default/button/Button";
 import Input from "../../default/input/Input";
 
