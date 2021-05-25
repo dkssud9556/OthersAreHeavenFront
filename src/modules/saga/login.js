@@ -6,15 +6,15 @@ import { goToMatch } from "../action/main";
 
 function* requestLogin(action) {
   try {
-    const result = yield call(
-      axios.post,
-      `${config.SERVER_URL}/auth`,
-      action.payload
-    );
+    const { email, password } = action.payload;
+    const result = yield call(axios.post, `${config.SERVER_URL}/auth`, {
+      email,
+      password,
+    });
     alert("로그인 성공");
     localStorage.setItem("token", result.data.accessToken);
-    yield put(loginSuccess());
-    yield put(goToMatch());
+    yield put(loginSuccess(result.data.accessToken));
+    action.payload.push("/main/match");
   } catch (e) {
     // TODO 오류 처리
     yield put(loginFail(e));

@@ -4,6 +4,7 @@ import useMain from "../../util/hooks/main/useMain";
 import useSignUp from "../../util/hooks/signup/useSignUp";
 import useLogin from "../../util/hooks/login/useLogin";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import {
   setSignupEmail,
   setSignupPassword,
@@ -21,6 +22,7 @@ const MainContainer = () => {
   const { state: signupState } = useSignUp();
   const { state: loginState } = useLogin();
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const onSignup = (e) => {
     e.preventDefault();
@@ -31,7 +33,9 @@ const MainContainer = () => {
   const onLogin = (e) => {
     e.preventDefault();
     const { loginEmail, loginPassword } = loginState;
-    dispatch(login({ email: loginEmail, password: loginPassword }));
+    dispatch(
+      login({ email: loginEmail, password: loginPassword, push: history.push })
+    );
   };
 
   const onClickLoginModeAnchor = (mode) => () => {
