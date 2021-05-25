@@ -1,21 +1,15 @@
-import React, { Suspense } from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import MainRouter from "./MainRouter";
 
 const RootRouter = () => {
   return (
-    <BrowserRouter>
+    <Router>
       <Switch>
-        <Route
-          path="/"
-          render={() => (
-            <Suspense fallback={<div>Loading...</div>}>
-              <MainRouter />
-            </Suspense>
-          )}
-        />
+        <Route path="/main" component={MainRouter} />
+        <Route render={() => <h1>Not Found</h1>} />
       </Switch>
-    </BrowserRouter>
+    </Router>
   );
 };
 

@@ -1,13 +1,13 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route } from "react-router-dom";
 import MainContainer from "../containers/main/MainContainer";
+import Matching from "../components/matching/Matching";
 
-const MainRouter = () => {
+const MainRouter = ({ match }) => {
   return (
     <>
-      <Switch>
-        <Route path="/" component={MainContainer} />
-      </Switch>
+      <Route exact={true} path={match.path} component={MainContainer} />
+      <Route path={`${match.path}/match`} component={Matching} />
     </>
   );
 };
