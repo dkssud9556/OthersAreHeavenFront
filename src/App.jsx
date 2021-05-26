@@ -3,7 +3,6 @@ import { Provider } from "react-redux";
 import store from "./modules/store";
 import GlobalStyle from "./globalStyle";
 import RootRouter from "./route";
-import { useRouteMatch } from "react-router-dom";
 
 const App = () => {
   return (
