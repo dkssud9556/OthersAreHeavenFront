@@ -2,7 +2,6 @@ import { call, put, takeEvery } from "redux-saga/effects";
 import { LOGIN, loginFail, loginSuccess } from "../action/login";
 import axios from "axios";
 import config from "../../config";
-import { goToMatch } from "../action/main";
 
 function* requestLogin(action) {
   try {
