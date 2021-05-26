@@ -1,10 +1,10 @@
 import { all } from "redux-saga/effects";
 import signupSaga from "./signup";
 import loginSaga from "./login";
-import goToMatchSaga from "./main";
+import startMatch from "./match";
 
 function* rootSaga() {
-  yield all([signupSaga(), loginSaga(), goToMatchSaga()]);
+  yield all([signupSaga(), loginSaga(), startMatch()]);
 }
 
 export default rootSaga;
