@@ -8,3 +8,7 @@ export const connectSocket = () =>
     reconnectionAttempts: 3,
     timeout: 2000,
   });
+
+export const emitAuthentication = (socket) => {
+  socket.emit("AUTHENTICATION", localStorage.getItem("token"));
+};
