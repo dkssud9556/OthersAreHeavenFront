@@ -1,8 +1,8 @@
-import { START_MATCH } from "../../action/match";
+import { GO_TO_MATCHING } from "../../action/match/interface";
 
 const MatchReducer = (state = null, action) => {
   switch (action.type) {
-    case START_MATCH:
+    case GO_TO_MATCHING:
       return {
         ...state,
       };
