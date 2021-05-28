@@ -1,1 +1,1 @@
-export const START_MATCH = "match/START_MATCH";
+export const GO_TO_MATCHING = "match/GO_TO_MATCHING";

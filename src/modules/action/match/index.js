@@ -1,8 +1,8 @@
-import { START_MATCH } from "./interface";
+import { GO_TO_MATCHING } from "./interface";
 
-export const startMatch = (payload) => ({
-  type: START_MATCH,
+export const goToMatching = (payload) => ({
+  type: GO_TO_MATCHING,
   payload,
 });
 
-export { START_MATCH };
+export { GO_TO_MATCHING };
