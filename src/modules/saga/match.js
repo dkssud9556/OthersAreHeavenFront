@@ -1,14 +1,12 @@
 import { takeEvery } from "redux-saga/effects";
-import { START_MATCH } from "../action/match";
+import { GO_TO_MATCHING } from "../action/match";
 
-function* requestStartMatch(action) {
-  console.log(action.payload.socket);
-  yield action.payload.socket.emit("MATCH");
+function* requestGoToMatching(action) {
   action.payload.push("/main/matching");
 }
 
-function* startMatch() {
-  yield takeEvery(START_MATCH, requestStartMatch);
+function* goToMatching() {
+  yield takeEvery(GO_TO_MATCHING, requestGoToMatching);
 }
 
-export default startMatch;
+export default goToMatching;
