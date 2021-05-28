@@ -1,21 +1,18 @@
 import React from "react";
 import Match from "../../components/match/Match";
-import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { startMatch } from "../../modules/action/match";
-import { connectSocket } from "../../lib/socket";
-
-const socket = connectSocket();
+import { goToMatching } from "../../modules/action/match";
+import { useHistory } from "react-router-dom";
 
 const MatchContainer = () => {
-  const history = useHistory();
   const dispatch = useDispatch();
+  const history = useHistory();
 
-  const onStartMatch = () => {
-    dispatch(startMatch({ push: history.push, socket }));
+  const onStartMatching = () => {
+    dispatch(goToMatching({ push: history.push }));
   };
 
-  return <Match onStartMatch={onStartMatch} />;
+  return <Match onStartMatching={onStartMatching} />;
 };
 
 export default MatchContainer;
