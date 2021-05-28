@@ -12,3 +12,7 @@ export const connectSocket = () =>
 export const emitAuthentication = (socket) => {
   socket.emit("AUTHENTICATION", localStorage.getItem("token"));
 };
+
+export const emitMatch = (socket) => {
+  socket.emit("MATCH");
+};
