@@ -1,9 +1,5 @@
 import { SIGNUP_EMAIL, SIGNUP_PASSWORD } from "../../action/signup";
-import {
-  SIGNUP,
-  SIGNUP_FAIL,
-  SIGNUP_SUCCESS,
-} from "../../action/signup/interface";
+import { SIGNUP, SIGNUP_FAIL, SIGNUP_SUCCESS } from "../../action/signup";
 
 const initState = {
   signupEmail: "",
