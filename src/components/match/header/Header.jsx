@@ -1,10 +1,10 @@
 import React from "react";
 import * as S from "../style";
 
-const Header = () => {
+const Header = ({ onClickLogout }) => {
   return (
     <S.Header>
-      <S.LogoutAnchor>로그아웃</S.LogoutAnchor>
+      <S.LogoutAnchor onClick={onClickLogout}>로그아웃</S.LogoutAnchor>
     </S.Header>
   );
 };

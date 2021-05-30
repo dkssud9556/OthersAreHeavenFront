@@ -9,7 +9,14 @@ const MatchContainer = () => {
     history.push("/main/matching");
   };
 
-  return <Match onStartMatching={onStartMatching} />;
+  const onClickLogout = () => {
+    localStorage.removeItem("token");
+    history.push("/main");
+  };
+
+  return (
+    <Match onStartMatching={onStartMatching} onClickLogout={onClickLogout} />
+  );
 };
 
 export default MatchContainer;
