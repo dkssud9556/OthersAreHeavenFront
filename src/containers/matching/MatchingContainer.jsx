@@ -16,12 +16,13 @@ const MatchingContainer = () => {
   const [isMatched, setIsMatched] = useState(false);
   const [content, setContent] = useState("");
   const [chats, setChats] = useState([]);
+  const [email, setEmail] = useState("");
   const socket = connectSocket();
   const history = useHistory();
 
   useEffect(() => {
     listenOnMatched(socket, setIsMatched);
-    listenOnAuthenticated(socket);
+    listenOnAuthenticated(socket, setEmail);
     listenOnReceiveMessage(socket, setChats);
     emitAuthentication(socket);
 
@@ -59,6 +60,7 @@ const MatchingContainer = () => {
       onChangeContent={onChangeContent}
       onClickStopMatching={onClickStopMatching}
       onClickFindNewUser={onClickFindNewUser}
+      email={email}
     />
   );
 };
