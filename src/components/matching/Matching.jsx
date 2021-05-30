@@ -1,16 +1,24 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import * as S from "./style";
 
 const Matching = ({
   isMatched,
   chats,
+  setChats,
   onChangeContent,
   onSubmitChat,
   content,
   onClickFindNewUser,
   onClickStopMatching,
   email,
+  isLeaveOpposite,
+  setIsLeaveOpposite,
 }) => {
+  useEffect(() => {
+    setIsLeaveOpposite(false);
+    setChats([]);
+  }, [isMatched]);
+
   return isMatched ? (
     <S.ChatBackground>
       <S.ChatArea>
@@ -20,7 +28,7 @@ const Matching = ({
               ? "시스템"
               : chat.senderEmail === email
               ? "나"
-              : "상대"}{" "}
+              : "상대"}
             : {chat.content}
           </div>
         ))}
@@ -31,6 +39,7 @@ const Matching = ({
           placeholder="할 말"
           onChange={onChangeContent}
           value={content}
+          disabled={isLeaveOpposite}
         />
         <S.ChatSubmitButton type="submit">전송</S.ChatSubmitButton>
         <S.ChatExitWrapper>

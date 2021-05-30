@@ -8,6 +8,7 @@ import {
   emitNewMessage,
   listenOnAuthenticated,
   listenOnMatched,
+  listenOnOppositeLeave,
   listenOnReceiveMessage,
 } from "../../lib/socket";
 import { useHistory } from "react-router-dom";
@@ -17,6 +18,7 @@ const MatchingContainer = () => {
   const [content, setContent] = useState("");
   const [chats, setChats] = useState([]);
   const [email, setEmail] = useState("");
+  const [isLeaveOpposite, setIsLeaveOpposite] = useState(false);
   const socket = connectSocket();
   const history = useHistory();
 
@@ -47,7 +49,6 @@ const MatchingContainer = () => {
 
   const onClickFindNewUser = () => {
     setIsMatched(false);
-    setChats([]);
     emitFindNewUser(socket);
   };
 
@@ -61,6 +62,9 @@ const MatchingContainer = () => {
       onClickStopMatching={onClickStopMatching}
       onClickFindNewUser={onClickFindNewUser}
       email={email}
+      setChats={setChats}
+      isLeaveOpposite={isLeaveOpposite}
+      setIsLeaveOpposite={setIsLeaveOpposite}
     />
   );
 };
