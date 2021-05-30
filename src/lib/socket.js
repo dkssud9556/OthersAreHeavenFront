@@ -13,8 +13,9 @@ export const emitAuthentication = (socket) => {
   socket.emit("AUTHENTICATION", { token: localStorage.getItem("token") });
 };
 
-export const listenOnAuthenticated = (socket) => {
-  socket.on("AUTHENTICATED", () => {
+export const listenOnAuthenticated = (socket, setEmail) => {
+  socket.on("AUTHENTICATED", (data) => {
+    setEmail(data.email);
     emitMatch(socket);
   });
 };
