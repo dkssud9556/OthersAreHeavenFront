@@ -19,7 +19,7 @@ export const LogoutAnchor = styled.a`
 `;
 
 export const MatchingButtonWrapper = styled.div`
-  position: absolute;
+  position: relative;
   right: 0;
   top: 0;
   width: 100vw;
