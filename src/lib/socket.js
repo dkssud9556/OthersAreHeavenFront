@@ -10,9 +10,35 @@ export const connectSocket = () =>
   });
 
 export const emitAuthentication = (socket) => {
-  socket.emit("AUTHENTICATION", localStorage.getItem("token"));
+  socket.emit("AUTHENTICATION", { token: localStorage.getItem("token") });
+};
+
+export const listenOnAuthenticated = (socket) => {
+  socket.on("AUTHENTICATED", () => {
+    emitMatch(socket);
+  });
 };
 
 export const emitMatch = (socket) => {
-  socket.emit("MATCH");
+  socket.emit("MATCH", { token: localStorage.getItem("token") });
+};
+
+export const listenOnMatched = (socket, setIsMatched) => {
+  socket.on("MATCHED", () => {
+    setIsMatched(true);
+  });
+};
+
+export const emitNewMessage = (socket, content) => {
+  socket.emit("NEW_MESSAGE", { content, token: localStorage.getItem("token") });
+};
+
+export const listenOnReceiveMessage = (socket, setChats) => {
+  socket.on("RECEIVE_MESSAGE", (chat) => {
+    setChats((prevChats) => [...prevChats, chat]);
+  });
+};
+
+export const emitFindNewUser = (socket) => {
+  socket.emit("FIND_NEW_USER", { token: localStorage.getItem("token") });
 };
