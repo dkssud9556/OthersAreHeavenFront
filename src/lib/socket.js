@@ -43,3 +43,9 @@ export const listenOnReceiveMessage = (socket, setChats) => {
 export const emitFindNewUser = (socket) => {
   socket.emit("FIND_NEW_USER", { token: localStorage.getItem("token") });
 };
+
+export const listenOnOppositeLeave = (socket, setIsLeaveOpposite) => {
+  socket.on("OPPOSITE_LEAVE", () => {
+    setIsLeaveOpposite(true);
+  });
+};
