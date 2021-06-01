@@ -6,33 +6,23 @@ export const ChatBackground = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: aquamarine;
-`;
-
-export const ChatArea = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 80%;
-  height: 80%;
-  background-color: white;
-  position: absolute;
-  overflow: scroll;
-  top: 20px;
-  left: 30px;
-  border-radius: 12px;
+  background-color: cornflowerblue;
 `;
 
 export const ChatSubmitWrapper = styled.form`
   position: absolute;
-  bottom: 15px;
+  bottom: 0;
   width: 100%;
+  height: 20%;
   display: flex;
   justify-content: space-around;
+  align-items: center;
 `;
 
 export const ChatInput = styled.input`
   width: 80%;
-  padding: 20px;
+  height: 50%;
+  padding-left: 10px;
   font-size: 35px;
   border: none;
   border-radius: 12px;
@@ -41,8 +31,9 @@ export const ChatInput = styled.input`
 
 export const ChatSubmitButton = styled.button`
   width: 7%;
+  height: 50%;
   font-size: 35px;
-  background: crimson;
+  background: #ffe936;
   border: none;
   border-radius: 12px;
   &:hover {
@@ -52,6 +43,7 @@ export const ChatSubmitButton = styled.button`
 
 export const ChatExitWrapper = styled.div`
   display: flex;
+  height: 50%;
   flex-direction: column;
   justify-content: space-around;
   width: 7%;
@@ -79,4 +71,77 @@ export const StopMatchingButton = styled.button`
     cursor: pointer;
   }
   background-color: gray;
+`;
+
+export const MatchingWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const Matching = styled.h1`
+  font-size: 50px;
+`;
+
+export const ExitMatchingButton = styled.button`
+  padding: 5px;
+  border-radius: 12px;
+  border: none;
+  background-color: indianred;
+  font-size: 20px;
+  margin-top: 50px;
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+export const OppositeSpeechBubble = styled.div`
+  position: relative;
+  align-self: flex-start;
+  padding: 10px;
+  width: 50%;
+  font-size: 20px;
+  background: white;
+  border-radius: 0.4em;
+  margin-left: 15px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+`;
+
+export const MySpeechBubble = styled.div`
+  position: relative;
+  align-self: flex-end;
+  padding: 10px;
+  width: 50%;
+  font-size: 20px;
+  background: #ffe936;
+  border-radius: 0.4em;
+  margin-right: 15px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+`;
+
+export const ChatArea = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 80%;
+  background-color: #b3c8db;
+  position: absolute;
+  overflow: scroll;
+`;
+
+export const SystemSpeechBubble = styled.div`
+  background-color: #93a5b3;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 24px;
+  color: white;
 `;
