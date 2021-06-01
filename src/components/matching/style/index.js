@@ -16,6 +16,7 @@ export const ChatArea = styled.div`
   height: 80%;
   background-color: white;
   position: absolute;
+  overflow: scroll;
   top: 20px;
   left: 30px;
   border-radius: 12px;

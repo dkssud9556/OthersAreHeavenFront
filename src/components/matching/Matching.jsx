@@ -23,14 +23,14 @@ const Matching = ({
     <S.ChatBackground>
       <S.ChatArea>
         {chats.map((chat) => (
-          <div>
+          <pre>
             {chat.senderEmail === "system"
               ? "시스템"
               : chat.senderEmail === email
               ? "나"
               : "상대"}
             : {chat.content}
-          </div>
+          </pre>
         ))}
       </S.ChatArea>
 
