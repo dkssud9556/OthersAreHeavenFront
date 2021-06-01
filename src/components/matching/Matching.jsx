@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import * as S from "./style";
+import MatchingWaiting from "./MatchingWaiting";
 
 const Matching = ({
   isMatched,
@@ -13,6 +14,7 @@ const Matching = ({
   email,
   isLeaveOpposite,
   setIsLeaveOpposite,
+  onClickExitMatchingButton,
 }) => {
   useEffect(() => {
     setIsLeaveOpposite(false);
@@ -22,16 +24,17 @@ const Matching = ({
   return isMatched ? (
     <S.ChatBackground>
       <S.ChatArea>
-        {chats.map((chat) => (
-          <pre>
-            {chat.senderEmail === "system"
-              ? "시스템"
-              : chat.senderEmail === email
-              ? "나"
-              : "상대"}
-            : {chat.content}
-          </pre>
-        ))}
+        {chats.map((chat) =>
+          chat.senderEmail === "system" ? (
+            <>
+              <S.SystemSpeechBubble>{chat.content}</S.SystemSpeechBubble>
+            </>
+          ) : chat.senderEmail === email ? (
+            <S.MySpeechBubble>{chat.content}</S.MySpeechBubble>
+          ) : (
+            <S.OppositeSpeechBubble>{chat.content}</S.OppositeSpeechBubble>
+          )
+        )}
       </S.ChatArea>
 
       <S.ChatSubmitWrapper onSubmit={onSubmitChat}>
@@ -53,7 +56,7 @@ const Matching = ({
       </S.ChatSubmitWrapper>
     </S.ChatBackground>
   ) : (
-    <div>매칭중...</div>
+    <MatchingWaiting onClickExitMatchingButton={onClickExitMatchingButton} />
   );
 };
 
