@@ -1,7 +1,7 @@
 import { LOGIN_MODE } from "../../action/main";
 
 const initState = {
-  isLoginMode: false,
+  isLoginMode: true,
   token: localStorage.getItem("token"),
 };
 
