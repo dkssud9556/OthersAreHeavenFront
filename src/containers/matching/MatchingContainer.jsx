@@ -26,6 +26,7 @@ const MatchingContainer = () => {
     listenOnMatched(socket, setIsMatched);
     listenOnAuthenticated(socket, setEmail);
     listenOnReceiveMessage(socket, setChats);
+    listenOnOppositeLeave(socket, setIsLeaveOpposite);
     emitAuthentication(socket);
 
     return () => {
