@@ -16,12 +16,7 @@ export const emitAuthentication = (socket) => {
 export const listenOnAuthenticated = ({ socket, setEmail }) => {
   socket.on("AUTHENTICATED", (data) => {
     setEmail(data.email);
-    emitMatch(socket);
   });
-};
-
-export const emitMatch = (socket) => {
-  socket.emit("MATCH", { token: localStorage.getItem("token") });
 };
 
 export const listenOnMatched = ({ socket, setIsMatched }) => {
