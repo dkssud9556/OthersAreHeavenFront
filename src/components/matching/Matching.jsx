@@ -15,7 +15,14 @@ const Matching = ({
   isLeaveOpposite,
   setIsLeaveOpposite,
   onClickExitMatchingButton,
+  chatArea,
 }) => {
+  // console.dir(chatArea.current);
+  // if (
+  //   chatArea.current.scrollTop ===
+  //   chatArea.current.scrollHeight - chatArea.current.offsetHeight
+  // ) {
+  // }
   useEffect(() => {
     setIsLeaveOpposite(false);
     setChats([]);
@@ -23,12 +30,10 @@ const Matching = ({
 
   return isMatched ? (
     <S.ChatBackground>
-      <S.ChatArea>
+      <S.ChatArea ref={chatArea}>
         {chats.map((chat) =>
           chat.senderEmail === "system" ? (
-            <>
-              <S.SystemSpeechBubble>{chat.content}</S.SystemSpeechBubble>
-            </>
+            <S.SystemSpeechBubble>{chat.content}</S.SystemSpeechBubble>
           ) : chat.senderEmail === email ? (
             <S.MySpeechBubble>{chat.content}</S.MySpeechBubble>
           ) : (

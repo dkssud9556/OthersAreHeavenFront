@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Matching from "../../components/matching/Matching";
 import {
   connectSocket,
@@ -21,12 +21,13 @@ const MatchingContainer = () => {
   const [isLeaveOpposite, setIsLeaveOpposite] = useState(false);
   const socket = connectSocket();
   const history = useHistory();
+  const chatArea = useRef();
 
   useEffect(() => {
-    listenOnMatched(socket, setIsMatched);
-    listenOnAuthenticated(socket, setEmail);
-    listenOnReceiveMessage(socket, setChats);
-    listenOnOppositeLeave(socket, setIsLeaveOpposite);
+    listenOnMatched({ socket, setIsMatched });
+    listenOnAuthenticated({ socket, setEmail });
+    listenOnReceiveMessage({ socket, setChats, chatArea });
+    listenOnOppositeLeave({ socket, setIsLeaveOpposite });
     emitAuthentication(socket);
 
     return () => {
@@ -36,7 +37,7 @@ const MatchingContainer = () => {
 
   const onSubmitChat = (e) => {
     e.preventDefault();
-    emitNewMessage(socket, content);
+    emitNewMessage({ socket, content });
     setContent("");
   };
 
@@ -71,6 +72,7 @@ const MatchingContainer = () => {
       isLeaveOpposite={isLeaveOpposite}
       setIsLeaveOpposite={setIsLeaveOpposite}
       onClickExitMatchingButton={onClickExitMatchingButton}
+      chatArea={chatArea}
     />
   );
 };
