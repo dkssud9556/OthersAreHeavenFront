@@ -53,6 +53,10 @@ const MatchingContainer = () => {
     emitFindNewUser(socket);
   };
 
+  const onClickExitMatchingButton = () => {
+    history.push("/main/match");
+  };
+
   return (
     <Matching
       isMatched={isMatched}
@@ -66,6 +70,7 @@ const MatchingContainer = () => {
       setChats={setChats}
       isLeaveOpposite={isLeaveOpposite}
       setIsLeaveOpposite={setIsLeaveOpposite}
+      onClickExitMatchingButton={onClickExitMatchingButton}
     />
   );
 };
