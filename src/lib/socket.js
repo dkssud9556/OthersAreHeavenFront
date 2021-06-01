@@ -13,7 +13,7 @@ export const emitAuthentication = (socket) => {
   socket.emit("AUTHENTICATION", { token: localStorage.getItem("token") });
 };
 
-export const listenOnAuthenticated = (socket, setEmail) => {
+export const listenOnAuthenticated = ({ socket, setEmail }) => {
   socket.on("AUTHENTICATED", (data) => {
     setEmail(data.email);
     emitMatch(socket);
@@ -24,19 +24,29 @@ export const emitMatch = (socket) => {
   socket.emit("MATCH", { token: localStorage.getItem("token") });
 };
 
-export const listenOnMatched = (socket, setIsMatched) => {
+export const listenOnMatched = ({ socket, setIsMatched }) => {
   socket.on("MATCHED", () => {
     setIsMatched(true);
   });
 };
 
-export const emitNewMessage = (socket, content) => {
+export const emitNewMessage = ({ socket, content }) => {
   socket.emit("NEW_MESSAGE", { content, token: localStorage.getItem("token") });
 };
 
-export const listenOnReceiveMessage = (socket, setChats) => {
+export const listenOnReceiveMessage = ({ socket, setChats, chatArea }) => {
   socket.on("RECEIVE_MESSAGE", (chat) => {
+    const beforeScrollHeight = chatArea.current.scrollHeight;
+    const beforeScrollTop = chatArea.current.scrollTop;
     setChats((prevChats) => [...prevChats, chat]);
+    if (
+      beforeScrollTop ===
+      beforeScrollHeight - chatArea.current.offsetHeight
+    ) {
+      chatArea.current.scrollTo({
+        top: chatArea.current.scrollHeight - chatArea.current.offsetHeight,
+      });
+    }
   });
 };
 
@@ -44,7 +54,7 @@ export const emitFindNewUser = (socket) => {
   socket.emit("FIND_NEW_USER", { token: localStorage.getItem("token") });
 };
 
-export const listenOnOppositeLeave = (socket, setIsLeaveOpposite) => {
+export const listenOnOppositeLeave = ({ socket, setIsLeaveOpposite }) => {
   socket.on("OPPOSITE_LEAVE", () => {
     setIsLeaveOpposite(true);
   });
