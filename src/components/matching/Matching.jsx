@@ -17,12 +17,6 @@ const Matching = ({
   onClickExitMatchingButton,
   chatArea,
 }) => {
-  // console.dir(chatArea.current);
-  // if (
-  //   chatArea.current.scrollTop ===
-  //   chatArea.current.scrollHeight - chatArea.current.offsetHeight
-  // ) {
-  // }
   useEffect(() => {
     setIsLeaveOpposite(false);
     setChats([]);
@@ -31,6 +25,7 @@ const Matching = ({
   return isMatched ? (
     <S.ChatBackground>
       <S.ChatArea ref={chatArea}>
+        <S.SystemSpeechBubble>서로 인사</S.SystemSpeechBubble>
         {chats.map((chat) =>
           chat.senderEmail === "system" ? (
             <S.SystemSpeechBubble>{chat.content}</S.SystemSpeechBubble>
