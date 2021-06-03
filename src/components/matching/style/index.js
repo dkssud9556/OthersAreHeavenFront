@@ -105,7 +105,7 @@ export const OppositeSpeechBubble = styled.div`
   position: relative;
   align-self: flex-start;
   padding: 10px;
-  width: 50%;
+  max-width: 50%;
   font-size: 20px;
   background: white;
   border-radius: 0.4em;
@@ -118,7 +118,7 @@ export const MySpeechBubble = styled.div`
   position: relative;
   align-self: flex-end;
   padding: 10px;
-  width: 50%;
+  max-width: 50%;
   font-size: 20px;
   background: #ffe936;
   border-radius: 0.4em;
