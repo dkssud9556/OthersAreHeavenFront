@@ -38,9 +38,10 @@ export const listenOnReceiveMessage = ({ socket, setChats, chatArea }) => {
       beforeScrollTop ===
       beforeScrollHeight - chatArea.current.offsetHeight
     ) {
-      chatArea.current.scrollTo({
-        top: chatArea.current.scrollHeight - chatArea.current.offsetHeight,
-      });
+      chatArea.current.scrollTo(
+        0,
+        chatArea.current.scrollHeight - chatArea.current.offsetHeight
+      );
     }
   });
 };
